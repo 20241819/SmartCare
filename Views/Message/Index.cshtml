@@ -1,0 +1,11 @@
+<h2>My Conversations</h2>
+<ul>
+@foreach (var thread in Model)
+{
+    <li>
+        <a asp-action="ViewThread" asp-route-id="@thread.Id">
+            Conversation with: @(User.Identity.Name == thread.PatientId ? thread.DoctorId : thread.PatientId)
+        </a>
+    </li>
+}
+</ul>
